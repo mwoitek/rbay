@@ -18,7 +18,7 @@ export const getItems = async (ids: string[]) => {
 		return client.hGetAll(itemsKey(id));
 	});
 	const results = await Promise.all(commands);
-	results.map((result, i) => {
+	return results.map((result, i) => {
 		if (Object.keys(result).length === 0) {
 			return null;
 		}
